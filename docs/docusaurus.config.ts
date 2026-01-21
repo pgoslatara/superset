@@ -126,7 +126,13 @@ if (!versionsConfig.developer_portal.disabled && !versionsConfig.developer_porta
       {
         type: 'doc',
         docsPluginId: 'developer_portal',
-        docId: 'extensions/architectural-principles',
+        docId: 'components/index',
+        label: 'UI Components',
+      },
+      {
+        type: 'doc',
+        docsPluginId: 'developer_portal',
+        docId: 'extensions/overview',
         label: 'Extensions',
       },
       {
