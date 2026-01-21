@@ -26,7 +26,7 @@ import { StoryWithControls } from '../../../src/components/StorybookWrapper';
 
 # Collapse
 
-The Collapse component from Superset's UI library.
+Collapse component for expandable/collapsible content panels.
 
 ## Live Example
 
@@ -37,33 +37,53 @@ The Collapse component from Superset's UI library.
   bordered: true,
   accordion: false,
   animateArrows: false,
-  modalMode: false
+  modalMode: false,
+  items: [
+    {
+      key: "1",
+      label: "Header 1",
+      children: "Content for panel 1"
+    },
+    {
+      key: "2",
+      label: "Header 2",
+      children: "Content for panel 2"
+    }
+  ],
+  defaultActiveKey: [
+    "1"
+  ]
 }}
   controls={[
   {
     name: "ghost",
     label: "Ghost",
-    type: "boolean"
+    type: "boolean",
+    description: "Make the collapse borderless and remove background."
   },
   {
     name: "bordered",
     label: "Bordered",
-    type: "boolean"
+    type: "boolean",
+    description: "Show border around the collapse."
   },
   {
     name: "accordion",
     label: "Accordion",
-    type: "boolean"
+    type: "boolean",
+    description: "Allow only one panel to be expanded at a time."
   },
   {
     name: "animateArrows",
     label: "Animate Arrows",
-    type: "boolean"
+    type: "boolean",
+    description: "Animate the expand/collapse arrows."
   },
   {
     name: "modalMode",
     label: "Modal Mode",
-    type: "boolean"
+    type: "boolean",
+    description: "Style for use inside modals."
   }
 ]}
 />
@@ -77,6 +97,11 @@ function Demo() {
   return (
     <Collapse
       bordered
+      defaultActiveKey={['1']}
+      items={[
+        { key: '1', label: 'Header 1', children: 'Content for panel 1' },
+        { key: '2', label: 'Header 2', children: 'Content for panel 2' },
+      ]}
     />
   );
 }
@@ -86,11 +111,13 @@ function Demo() {
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `ghost` | `boolean` | `false` | - |
-| `bordered` | `boolean` | `true` | - |
-| `accordion` | `boolean` | `false` | - |
-| `animateArrows` | `boolean` | `false` | - |
-| `modalMode` | `boolean` | `false` | - |
+| `ghost` | `boolean` | `false` | Make the collapse borderless and remove background. |
+| `bordered` | `boolean` | `true` | Show border around the collapse. |
+| `accordion` | `boolean` | `false` | Allow only one panel to be expanded at a time. |
+| `animateArrows` | `boolean` | `false` | Animate the expand/collapse arrows. |
+| `modalMode` | `boolean` | `false` | Style for use inside modals. |
+| `items` | `any` | `[{"key":"1","label":"Header 1","children":"Content for panel 1"},{"key":"2","label":"Header 2","children":"Content for panel 2"}]` | Array of panel items with key, label, and children. |
+| `defaultActiveKey` | `any` | `["1"]` | - |
 
 ## Import
 

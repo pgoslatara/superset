@@ -22,6 +22,13 @@ import type { CollapseProps } from './types';
 export default {
   title: 'Components/Collapse',
   component: Collapse,
+  parameters: {
+    docs: {
+      description: {
+        component: 'Collapse component for expandable/collapsible content panels.',
+      },
+    },
+  },
 };
 
 export const InteractiveCollapse = (args: CollapseProps) => (
@@ -52,6 +59,30 @@ InteractiveCollapse.args = {
 };
 
 InteractiveCollapse.argTypes = {
+  ghost: {
+    description: 'Make the collapse borderless and remove background.',
+    control: 'boolean',
+  },
+  bordered: {
+    description: 'Show border around the collapse.',
+    control: 'boolean',
+  },
+  accordion: {
+    description: 'Allow only one panel to be expanded at a time.',
+    control: 'boolean',
+  },
+  animateArrows: {
+    description: 'Animate the expand/collapse arrows.',
+    control: 'boolean',
+  },
+  modalMode: {
+    description: 'Style for use inside modals.',
+    control: 'boolean',
+  },
+  items: {
+    description: 'Array of panel items with key, label, and children.',
+    control: false,
+  },
   theme: {
     table: {
       disable: true,
@@ -62,5 +93,26 @@ InteractiveCollapse.argTypes = {
 InteractiveCollapse.parameters = {
   actions: {
     disable: true,
+  },
+  docs: {
+    staticProps: {
+      items: [
+        { key: '1', label: 'Header 1', children: 'Content for panel 1' },
+        { key: '2', label: 'Header 2', children: 'Content for panel 2' },
+      ],
+      defaultActiveKey: ['1'],
+    },
+    liveExample: `function Demo() {
+  return (
+    <Collapse
+      bordered
+      defaultActiveKey={['1']}
+      items={[
+        { key: '1', label: 'Header 1', children: 'Content for panel 1' },
+        { key: '2', label: 'Header 2', children: 'Content for panel 2' },
+      ]}
+    />
+  );
+}`,
   },
 };
