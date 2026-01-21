@@ -106,13 +106,15 @@ InteractiveDatePicker.parameters = {
       showNow: true,
       showToday: true,
       placeholder: 'Select date',
+      showTime: { format: 'hh:mm a', needConfirm: false },
     },
     liveExample: `function Demo() {
   return (
     <DatePicker
       placeholder="Select date"
-      format="YYYY-MM-DD"
+      format="YYYY-MM-DD hh:mm a"
       showToday
+      showTime={{ format: 'hh:mm a', needConfirm: false }}
     />
   );
 }`,

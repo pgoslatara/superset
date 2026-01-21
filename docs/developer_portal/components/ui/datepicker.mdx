@@ -43,7 +43,11 @@ The DatePicker component from Superset's UI library.
   picker: "date",
   placement: "bottomLeft",
   size: "middle",
-  showNow: true
+  showNow: true,
+  showTime: {
+    format: "hh:mm a",
+    needConfirm: false
+  }
 }}
   controls={[
   {
@@ -68,8 +72,9 @@ function Demo() {
   return (
     <DatePicker
       placeholder="Select date"
-      format="YYYY-MM-DD"
+      format="YYYY-MM-DD hh:mm a"
       showToday
+      showTime={{ format: 'hh:mm a', needConfirm: false }}
     />
   );
 }
@@ -90,6 +95,7 @@ function Demo() {
 | `placement` | `string` | `"bottomLeft"` | - |
 | `size` | `string` | `"middle"` | - |
 | `showNow` | `boolean` | `true` | - |
+| `showTime` | `any` | `{"format":"hh:mm a","needConfirm":false}` | - |
 
 ## Import
 
